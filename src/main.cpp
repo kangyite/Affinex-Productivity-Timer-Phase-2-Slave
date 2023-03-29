@@ -20,9 +20,9 @@ at24c256 eep(0x50); // 0x50 = A1(GND), A0(GND)
 #define NUM_ZONE 1
 #endif
 
-#define CLK_PIN 18  // or SCK
 #define DATA_PIN 23 // or MOSI
 #define CS_PIN 5    // or SS
+#define CLK_PIN 18  // or SCK
 MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 const uint8_t FONT_ONE[] = {5, 0, 4, 2, 127, 0};
 const uint8_t FONT_SPACE[] = {5, 0, 0, 0, 0, 0};
