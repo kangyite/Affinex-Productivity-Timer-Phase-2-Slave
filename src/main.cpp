@@ -385,6 +385,7 @@ void print_help()
   Serial.println(F("|                  | TEXT = text to display                                        |"));
   Serial.println(F("|@spacing x        | x = any number to set spacing between characters              |"));
   Serial.println(F("|@brightness x     | x = brightness (0-15)                                         |"));
+  Serial.println(F("|@read mode        | Read current mode                                             |"));
   Serial.println(F("|@mode x           | x = auto, is auto mode, only can receive commands from master |"));
   Serial.println(F("|                  | x = manual, is manual mode, can work as standalone            |"));
   Serial.println(F("|                                                                                  |"));

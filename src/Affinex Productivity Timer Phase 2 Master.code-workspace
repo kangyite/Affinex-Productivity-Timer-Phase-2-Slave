@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../Affinex Productivity Timer Phase 2 Master"
+		},
+		{
+			"name": "Affinex Productivity Timer Phase 2 Slave",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
