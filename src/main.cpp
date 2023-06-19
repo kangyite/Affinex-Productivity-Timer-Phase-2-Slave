@@ -177,7 +177,7 @@ void setup()
     spacing = 0;
   eep_read(EEP_BRIGHTNESS, brightness);
   if (brightness > 15)
-    brightness = 5;
+    brightness = 10;
   eep_read(EEP_AUTO_MODE, auto_mode);
   eep_read(EEP_TEXT_0, text0);
   if (text0[0] == 255)
