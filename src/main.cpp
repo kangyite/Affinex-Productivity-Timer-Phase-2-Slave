@@ -26,6 +26,8 @@ at24c256 eep(0x50); // 0x50 = A1(GND), A0(GND)
 MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 const uint8_t FONT_ONE[] = {5, 0, 4, 2, 127, 0};
 const uint8_t FONT_SPACE[] = {5, 0, 0, 0, 0, 0};
+const uint8_t FONT_MINUS[] = {5, 8, 8, 8, 8, 8};
+const uint8_t FONT_EQUAL[] = {5, 20, 20, 20, 20, 20};
 const uint8_t FONT_ONEBLANK[] = {1, 0};
 const uint8_t FONT_TWOBLANK[] = {2, 0, 0};
 
@@ -205,6 +207,7 @@ void setup()
   Serial.println("To read mode: @read mode");
   Serial.println("To change mode: @mode x | x = auto, only can receive commands from master.");
   Serial.println("                        | x = manual, can work as standalone.");
+  Serial2.print("@getslave\r");
 } // end setup
 
 void loop()
@@ -687,6 +690,8 @@ void init_io(void)
   P.begin(NUM_ZONE);
   P.addChar('1', FONT_ONE);
   P.addChar(' ', FONT_SPACE);
+  P.addChar('=', FONT_EQUAL);
+  P.addChar('-', FONT_MINUS);
   P.addChar('|', FONT_ONEBLANK);
   P.addChar('~', FONT_TWOBLANK);
   P.setCharSpacing(spacing);
