@@ -3,7 +3,7 @@
 #include <MD_MAX72xx.h>
 #include <SPI.h>
 #include "at24c256.h"
-
+// SET_LOOP_TASK_STACK_SIZE( 16*1024 );
 at24c256 eep(0x50); // 0x50 = A1(GND), A0(GND)
 
 #define HARDWARE_TYPE MD_MAX72XX::FC16_HW
@@ -207,6 +207,7 @@ void setup()
   Serial.println("To read mode: @read mode");
   Serial.println("To change mode: @mode x | x = auto, only can receive commands from master.");
   Serial.println("                        | x = manual, can work as standalone.");
+  
   Serial2.print("@getslave\r");
 } // end setup
 
@@ -688,6 +689,7 @@ void init_io(void)
   pinMode(RUN_LED_pin, OUTPUT);
   digitalWrite(RUN_LED_pin, LOW); // Output, nomal LOW
   P.begin(NUM_ZONE);
+  delay(1000);
   P.addChar('1', FONT_ONE);
   P.addChar(' ', FONT_SPACE);
   P.addChar('=', FONT_EQUAL);
@@ -711,9 +713,13 @@ void init_io(void)
   P.setZoneEffect(0, 1, PA_FLIP_LR);
   P.setZoneEffect(2, 1, PA_FLIP_UD);
   P.setZoneEffect(2, 1, PA_FLIP_LR);
+  delay(250);
   display(0, text0);
+  delay(250);
   display(1, text1);
+  delay(250);
   display(2, text2);
+  delay(250);
 #else
   P.setZone(0, 0, 7);
   P.setZoneEffect(0, 1, PA_FLIP_UD);
